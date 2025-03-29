@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->text('description');
             $table->enum('status', array_map(fn ($case) => $case->value, TicketStatus::cases()));
+            $table->string('reference_number')->unique();
             $table->timestamps();
         });
     }
