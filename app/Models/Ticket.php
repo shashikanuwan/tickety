@@ -6,7 +6,7 @@ use App\Enums\TicketStatus;
 use Database\Factories\TicketFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 class Ticket extends Model
@@ -33,8 +33,8 @@ class Ticket extends Model
         return 'TICKET-'.now()->format('Ymd').'-'.Str::uuid();
     }
 
-    public function reply(): HasOne
+    public function replies(): HasMany
     {
-        return $this->hasOne(Reply::class);
+        return $this->hasMany(Reply::class);
     }
 }
