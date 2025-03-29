@@ -83,4 +83,4 @@ This project is licensed under the MIT License.
 For any questions, reach out at [contact@shashikanuwan.me](mailto:contact@shashikanuwan.me)
 
 ### 🙏 Credits
-Didn’t copy any code, but I did refer to the code in this repository to refresh my memory and gain inspiration. [Click here](https://github.com/shashikanuwan/task-trail)
+I did refer to the code in this repository to refresh my memory and gain inspiration. [Click here](https://github.com/shashikanuwan/task-trail)
