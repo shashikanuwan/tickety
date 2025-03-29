@@ -11,6 +11,7 @@
                      name="reference_number"
                      id="reference_number"
                      class="w-full mt-2"
+                     value="{{ request('reference_number') }}"
                      required/>
         </div>
 

@@ -7,6 +7,7 @@ use Database\Factories\TicketFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
 
 /**
@@ -22,6 +23,8 @@ class Ticket extends Model
 {
     /** @use HasFactory<TicketFactory> */
     use HasFactory;
+
+    use Notifiable;
 
     protected function casts(): array
     {
