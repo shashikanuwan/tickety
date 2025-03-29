@@ -16,6 +16,7 @@ use Illuminate\Support\Str;
  * @property string $phone_number
  * @property string $description
  * @property TicketStatus $status
+ * @property string $reference_number
  */
 class Ticket extends Model
 {

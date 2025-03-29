@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\Ticket\CreateTicketController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('tickets', CreateTicketController::class)
+    ->name('tickets.store');
 
 Route::middleware([
     'auth:sanctum',
