@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
 /**
+ * @property int $id
  * @property string $customer_name
  * @property string $email
  * @property string $phone_number
