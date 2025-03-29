@@ -27,7 +27,7 @@ class TicketCreated extends Notification
             ->line('Here are your ticket details:')
             ->line('**📌 Ticket Reference Number:** *'.$this->ticket->reference_number.'*')
             ->line('You can use this reference number to track the status of your request.')
-            ->action('Check Ticket Status', url('/?reference_number='.$this->ticket->reference_number))
+            ->action('Check Ticket Status', url('/?ref='.$this->ticket->reference_number))
             ->line('Our support team will review your request and get back to you shortly.')
             ->line('If you have any additional details to add, feel free to reply to this email.')
             ->salutation('Best regards, The Support Team');
