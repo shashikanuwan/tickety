@@ -32,7 +32,7 @@ Ensure you have the following installed:
     git clone git@github.com:shashikanuwan/tickety.git
     ```
     ```bash
-   cd task-trail
+   cd tickety
     ```
    
 2. Install dependencies
