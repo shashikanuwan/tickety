@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Ticket\CreateTicketController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', HomeController::class)
+    ->name('welcome');
 
 Route::post('tickets', CreateTicketController::class)
     ->name('tickets.store');
