@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 
+/**
+ * @property int $id
+ * @property string $customer_name
+ * @property string $email
+ * @property string $phone_number
+ * @property string $description
+ * @property TicketStatus $status
+ */
 class Ticket extends Model
 {
     /** @use HasFactory<TicketFactory> */
