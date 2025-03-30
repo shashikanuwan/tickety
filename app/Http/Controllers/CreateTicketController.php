@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Ticket;
+namespace App\Http\Controllers;
 
 use App\Enums\TicketStatus;
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Ticket\CreateTicketRequest;
+use App\Http\Requests\CreateTicketRequest;
 use Illuminate\Http\RedirectResponse;
 use Tickety\Ticket\Actions\CreateTicket;
 

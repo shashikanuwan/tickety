@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\ClosedTicketController;
+use App\Http\Controllers\CreateReplyController;
+use App\Http\Controllers\CreateTicketController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Ticket\CreateTicketController;
+use App\Http\Controllers\ShowTicketController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', HomeController::class)
@@ -14,8 +18,17 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-});
+])
+    ->group(function () {
+        Route::get('dashboard', DashboardController::class)
+            ->name('dashboard');
+
+        Route::get('tickets/{ticket}', ShowTicketController::class)
+            ->name('tickets.show');
+
+        Route::patch('tickets/{ticket}', ClosedTicketController::class)
+            ->name('tickets.close');
+
+        Route::post('tickets/{ticket}/reply', CreateReplyController::class)
+            ->name('tickets.reply.store');
+    });

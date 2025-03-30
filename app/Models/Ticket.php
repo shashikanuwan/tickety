@@ -26,6 +26,10 @@ class Ticket extends Model
 
     use Notifiable;
 
+    protected $fillable = [
+        'status',
+    ];
+
     protected function casts(): array
     {
         return [

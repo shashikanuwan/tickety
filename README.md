@@ -70,6 +70,12 @@ Ensure you have the following installed:
    
    Visit `http://localhost:8000` to start using Tickety.
 
+### 📝 Testing
+
+```bash
+    php artisan test
+```
+
 ---
 
 ### 📂 Screenshots
@@ -83,4 +89,8 @@ This project is licensed under the MIT License.
 For any questions, reach out at [contact@shashikanuwan.me](mailto:contact@shashikanuwan.me)
 
 ### 🙏 Credits
-I did refer to the code in this repository to refresh my memory and gain inspiration. [Click here](https://github.com/shashikanuwan/task-trail)
+ - [Task-Trail](https://github.com/shashikanuwan/task-trail)
+ - [Laravel](https://laravel.com/)
+ - [Tailwind CSS](https://tailwindcss.com/)
+ - [Livewire](https://laravel-livewire.com/)
+ - [Heroicons](https://heroicons.com/)

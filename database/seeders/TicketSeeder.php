@@ -10,8 +10,8 @@ class TicketSeeder extends Seeder
 {
     public function run(): void
     {
-        Ticket::factory(5)
-            ->has(Reply::factory()->count(3))
+        Ticket::factory(15)
+            ->has(Reply::factory()->count(4))
             ->create();
     }
 }
