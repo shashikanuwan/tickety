@@ -17,7 +17,7 @@ class ReplyFactory extends Factory
         return [
             'message' => $this->faker->realText(),
             'ticket_id' => Ticket::factory(),
-            'user_id' => User::factory(),
+            'user_id' => User::query()->inRandomOrder()->first(),
         ];
     }
 }
