@@ -20,7 +20,7 @@ enum TicketStatus: string
     public function bgColor(): string
     {
         return match ($this) {
-            self::PENDING => 'bg-slate-100',
+            self::PENDING => 'bg-amber-100',
             self::OPENED => 'bg-violet-100',
             self::CLOSED => 'bg-emerald-100',
         };
@@ -29,7 +29,7 @@ enum TicketStatus: string
     public function textColor(): string
     {
         return match ($this) {
-            self::PENDING => 'text-slate-600',
+            self::PENDING => 'text-amber-600',
             self::OPENED => 'text-violet-600',
             self::CLOSED => 'text-emerald-600',
         };

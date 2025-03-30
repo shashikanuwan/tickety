@@ -3,6 +3,7 @@
 namespace App\Livewire\Ticket;
 
 use App\Models\Ticket;
+use App\Queries\TicketQuery;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
@@ -32,11 +33,7 @@ class SearchTicketForm extends Component
 
     public function searchTicket(): void
     {
-        $this->ticket = Ticket::query()
-            ->with('replies.user')
-            ->where('reference_number', $this->referenceNumber)
-            ->orderBy('created_at', 'desc')
-            ->first();
+        $this->ticket = TicketQuery::findByReferenceNumber($this->referenceNumber);
     }
 
     public function render(): View

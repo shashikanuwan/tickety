@@ -6,11 +6,10 @@
             name="message"
             id="message"
             rows="3"
-            class="w-full px-4 py-2 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+            placeholder="Write your reply here..."
+            class="mt-2 w-full px-4 py-2 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
             required
-        >
-            {{ old('message') }}
-        </textarea>
+        >{{ old('message') }}</textarea>
 
         <x-input-error for="message" class="mt-2"/>
 
