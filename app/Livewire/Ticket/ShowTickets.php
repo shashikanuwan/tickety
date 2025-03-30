@@ -24,6 +24,7 @@ class ShowTickets extends Component
         return Ticket::query()
             ->when($this->customerName, fn ($query) => $query->where('customer_name', 'like', "%{$this->customerName}%"))
             ->when($this->ticketStatus, fn ($query) => $query->where('status', $this->ticketStatus))
+            ->orderBy('id', 'desc')
             ->paginate(10);
     }
 
