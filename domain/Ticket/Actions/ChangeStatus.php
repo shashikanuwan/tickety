@@ -11,8 +11,12 @@ class ChangeStatus
         Ticket $ticket,
         TicketStatus $status
     ): void {
-        $ticket->update([
-            'status' => $status,
-        ]);
+        if ($ticket->isPending()) {
+            $ticket->update(['status' => $status]);
+        }
+
+        if ($ticket->isOpened()) {
+            $ticket->update(['status' => $status]);
+        }
     }
 }

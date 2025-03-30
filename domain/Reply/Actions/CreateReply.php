@@ -2,6 +2,7 @@
 
 namespace Tickety\Reply\Actions;
 
+use App\Events\ReplyProcessed;
 use App\Models\Reply;
 use App\Models\Ticket;
 use App\Models\User;
@@ -18,6 +19,8 @@ class CreateReply
         $reply->ticket()->associate($ticket);
         $reply->user()->associate($user);
         $reply->save();
+
+        ReplyProcessed::dispatch($reply);
 
         return $reply;
     }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\TicketStatus;
+use Carbon\Carbon;
 use Database\Factories\TicketFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -18,6 +19,7 @@ use Illuminate\Support\Str;
  * @property string $description
  * @property TicketStatus $status
  * @property string $reference_number
+ * @property Carbon $created_at
  */
 class Ticket extends Model
 {
@@ -52,5 +54,20 @@ class Ticket extends Model
     public function replies(): HasMany
     {
         return $this->hasMany(Reply::class);
+    }
+
+    public function isClosed(): bool
+    {
+        return $this->status === TicketStatus::CLOSED;
+    }
+
+    public function isOpened(): bool
+    {
+        return $this->status === TicketStatus::OPENED;
+    }
+
+    public function isPending(): bool
+    {
+        return $this->status === TicketStatus::PENDING;
     }
 }

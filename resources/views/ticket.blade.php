@@ -5,7 +5,9 @@
             <x-ticket.reply-card :$ticket/>
         </div>
     </div>
-    <div class="container mx-auto mt-4">
-        <x-ticket.reply-form :$ticket/>
-    </div>
+    @if(!$ticket->isClosed())
+        <div class="container mx-auto mt-4">
+            <x-ticket.reply-form :$ticket/>
+        </div>
+    @endif
 </x-app-layout>
