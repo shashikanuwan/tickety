@@ -5,24 +5,15 @@ namespace App\Livewire\Ticket;
 use App\Models\Ticket;
 use App\Queries\TicketQuery;
 use Illuminate\Contracts\View\View;
-use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class SearchTicketForm extends Component
 {
-    public ?Ticket $ticket;
+    public ?string $referenceNumber = null;
 
-    #[Validate]
-    public ?string $referenceNumber;
+    public ?Ticket $searchedTicket = null;
 
-    protected function rules(): array
-    {
-        return [
-            'referenceNumber' => 'required|string|exists:tickets,reference_number',
-        ];
-    }
-
-    public function mount($referenceNumber = null): void
+    public function mount(?string $referenceNumber = null): void
     {
         $this->referenceNumber = $referenceNumber;
 
@@ -31,13 +22,24 @@ class SearchTicketForm extends Component
         }
     }
 
-    public function searchTicket(): void
+    public function updatedReferenceNumber(): void
     {
-        $this->ticket = TicketQuery::findByReferenceNumber($this->referenceNumber);
+        if ($this->referenceNumber) {
+            $this->searchTicket();
+        } else {
+            $this->searchedTicket = null;
+        }
+    }
+
+    private function searchTicket(): void
+    {
+        $this->searchedTicket = TicketQuery::findByReferenceNumber($this->referenceNumber);
     }
 
     public function render(): View
     {
-        return view('livewire.ticket.search-ticket-form');
+        return view('livewire.ticket.search-ticket-form', [
+            'ticket' => $this->searchedTicket,
+        ]);
     }
 }
