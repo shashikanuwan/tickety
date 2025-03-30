@@ -55,4 +55,19 @@ class Ticket extends Model
     {
         return $this->hasMany(Reply::class);
     }
+
+    public function isClosed(): bool
+    {
+        return $this->status === TicketStatus::CLOSED;
+    }
+
+    public function isOpened(): bool
+    {
+        return $this->status === TicketStatus::OPENED;
+    }
+
+    public function isPending(): bool
+    {
+        return $this->status === TicketStatus::PENDING;
+    }
 }
