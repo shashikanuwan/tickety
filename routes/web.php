@@ -23,7 +23,7 @@ Route::middleware([
         Route::get('dashboard', DashboardController::class)
             ->name('dashboard');
 
-        Route::get('tickets/{ticket}', ShowTicketController::class)
+        Route::get('tickets/{ticket}/show', ShowTicketController::class)
             ->name('tickets.show');
 
         Route::patch('tickets/{ticket}', ClosedTicketController::class)
