@@ -14,7 +14,7 @@
             <x-ticket.ticket-card :$ticket/>
             <x-ticket.reply-card :$ticket/>
         </div>
-    @elseif(empty($ticket) && $referenceNumber != '')
+    @elseif(empty($ticket) && !empty($referenceNumber))
         <div class="mt-4 p-4 text-center text-gray-500 dark:text-gray-400 italic">
             Please enter a valid number ☹️
         </div>
