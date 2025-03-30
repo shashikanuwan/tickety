@@ -12,7 +12,13 @@
         </div>
     </div>
 
-    <x-login-button/>
-    <x-mode-button/>
+    @auth
+        <x-dashboard-button/>
+    @endauth
+
+    @guest
+        <x-login-button/>
+    @endguest
+
     <x-ticket.footer/>
 </x-guest-layout>

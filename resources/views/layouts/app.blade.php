@@ -35,6 +35,7 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+                <x-mode-button/>
             </main>
         </div>
 
