@@ -3,7 +3,7 @@
 namespace App\Livewire\Ticket;
 
 use App\Enums\TicketStatus;
-use App\Models\Ticket;
+use App\Queries\TicketQuery;
 use Illuminate\Contracts\View\View;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Livewire\Attributes\Computed;
@@ -21,11 +21,14 @@ class ShowTickets extends Component
     #[Computed]
     public function tickets(): LengthAwarePaginator
     {
-        return Ticket::query()
-            ->when($this->customerName, fn ($query) => $query->where('customer_name', 'like', "%{$this->customerName}%"))
-            ->when($this->ticketStatus, fn ($query) => $query->where('status', $this->ticketStatus))
-            ->orderBy('id', 'desc')
-            ->paginate(10);
+        return TicketQuery::getTickets($this->customerName, $this->ticketStatus);
+    }
+
+    public function updated($propertyName): void
+    {
+        if (in_array($propertyName, ['customerName', 'ticketStatus'])) {
+            $this->resetPage();
+        }
     }
 
     public function render(): View
