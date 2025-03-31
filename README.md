@@ -7,11 +7,18 @@ This project allows users to check the status of their support tickets and submi
 - Open a New Support Ticket – Users can easily submit new support requests. Upon submission, an email notification will be sent to the customer, confirming their request and providing a unique reference number for tracking.
 - Search Ticket – Users can search for a ticket by entering a reference number.
 - View Ticket Details & Replies – Display ticket details and related responses.
+- Real-time Ticket Updates – Fetch and display tickets instantly using WebSockets and Laravel Reverb.
+- Instant Notifications – Get notified when a new ticket is created without refreshing the page.
 
 ### 🦾 Built With
 
 - **Laravel + Blade + Livewire** – Full stack framework.
 - **Tailwind CSS** – Responsive and modern UI design.
+
+### 🧰 First-Party Services & Packages
+
+- **Laravel Reverb** – Enables real-time communication via WebSockets.
+- **Laravel Pulse** – Provides monitoring and insights into application performance.
 
 ---
 
@@ -67,14 +74,26 @@ Ensure you have the following installed:
     ```bash
     composer run dev
     ```
+   and
+    ```bash
+   php artisan reverb start
+   ```
    
    Visit `http://localhost:8000` to start using Tickety.
 
 ### 📝 Testing
 
-```bash
+- Tests
+    ```bash
     php artisan test
-```
+    ```
+  
+### 🚀 Monitoring Guide
+
+🔒 Authentication Required – Only authenticated users can access this monitoring dashboard.
+
+- Accessing Laravel Pulse: `http://localhost:8000/pulse`
+  
 
 ---
 
