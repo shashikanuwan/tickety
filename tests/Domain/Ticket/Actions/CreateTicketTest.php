@@ -1,10 +1,16 @@
 <?php
 
 use App\Enums\TicketStatus;
+use App\Events\TicketProcessed;
 use App\Models\Ticket;
+use Illuminate\Support\Facades\Event;
 use Tickety\Ticket\Actions\CreateTicket;
 
 it('can create ticket', function () {
+    Event::fake([
+        TicketProcessed::class,
+    ]);
+
     $ticket = resolve(CreateTicket::class)
         ->execute(
             'User one',

@@ -18,10 +18,22 @@ class ShowTickets extends Component
 
     public ?TicketStatus $ticketStatus = null;
 
+    public function getListeners(): array
+    {
+        return [
+            'echo-private:tickets,TicketProcessed' => 'notifyNewTicketCreated',
+        ];
+    }
+
     #[Computed]
     public function tickets(): LengthAwarePaginator
     {
         return TicketQuery::getTickets($this->customerName, $this->ticketStatus);
+    }
+
+    public function notifyNewTicketCreated($eventData): void
+    {
+        $this->dispatch('displayNotification', 'New ticket created for '.$eventData['customer_name']);
     }
 
     public function updated($propertyName): void
